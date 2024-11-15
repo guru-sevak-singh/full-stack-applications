@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/ico" />
+
+    <title>School Management</title>
+
+    <!-- Bootstrap -->
+    <link href="/static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/static/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="/static/css/custom.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+    <div class="login" id="login">
+        <div class="wrapper wrapper-login pt-4">
+            <form method="post" class="container container-login animated fadeIn mt-5">
+
+                <h3 class="text-center">Sign In</h3>
+                <div class="login-form">
+
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    <div class="alert alert alert-danger alert-dismissible fade show my-3" role="alert">
+                        {% for message in messages %}
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+
+                    {% endwith %}
+
+                    <div class="form-group form-floating-label">
+                        <input id="name" name="name" type="text" class="form-control input-border-bottom" required>
+                        <label for="name" class="placeholder">Name</label>
+                    </div>
+                    <div class="form-group form-floating-label">
+                        <input id="login-id" name="login-id" type="text" class="form-control input-border-bottom"
+                            required>
+                        <label for="login-id" class="placeholder">Login Id</label>
+                    </div>
+                    <div class="form-group form-floating-label">
+                        <input id="password" name="password" type="password" class="form-control input-border-bottom"
+                            required>
+                        <label for="password" class="placeholder">Password</label>
+                        <div class="show-password">
+                            <i class="flaticon-interface"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group form-floating-label">
+                        <input id="retype-password" name="retype-password" type="password" class="form-control input-border-bottom"
+                            required>
+                        <label for="retype-password" class="placeholder">Retype Password</label>
+                        <div class="show-retype-password">
+                            <i class="flaticon-interface"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-action mb-3">
+                        <button type="submit" href="#" class="btn btn-success btn-rounded btn-login">Sign In</button>
+                    </div>
+                    <div class="login-account">
+                        <span class="msg">Already Have Account ?</span>
+                        <a href="{{ url_for ('login')}}" id="show-signup" class="link">Login</a>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="/static/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/static/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Custom Theme Scripts -->
+    <script src="/static/js/custom.js"></script>
+
+
+</body>
+
+</html>
